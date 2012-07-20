@@ -10,6 +10,7 @@ public class HUDElement {
 	protected Image rolloverImage;
 	protected boolean hasClickImage;
 	protected Image clickImage;
+	protected Image currentImage;
 	protected int width, height;
 	protected int x, y;
 	protected Rectangle area;
@@ -28,6 +29,7 @@ public class HUDElement {
 		clickImage = null;
 		hasClickImage = false;
 		hasRolloverImage = false;
+		currentImage = normalImage;
 	}
 	public HUDElement(int x, int y, int width, int height){
 		this.x = x;
@@ -40,6 +42,7 @@ public class HUDElement {
 		clickImage = null;
 		hasClickImage = false;
 		hasRolloverImage = false;
+		currentImage = normalImage;
 	}
 	public HUDElement(Rectangle r){
 		this.x = (int) r.getX();
@@ -52,6 +55,7 @@ public class HUDElement {
 		clickImage = null;
 		hasClickImage = false;
 		hasRolloverImage = false;
+		currentImage = normalImage;
 	}
 	public HUDElement(Image i){
 		x = 0;
@@ -71,6 +75,7 @@ public class HUDElement {
 		clickImage = null;
 		hasClickImage = false;
 		hasRolloverImage = false;
+		currentImage = normalImage;
 	}
 	public HUDElement(Image i, Image secondaryImage, int imageType){
 		x = 0;
@@ -99,7 +104,7 @@ public class HUDElement {
 		}else{
 			//Throw error here.
 		}
-		
+		currentImage = normalImage;
 	}
 	public HUDElement(Image i, Image rImage, Image cImage){
 		x = 0;
@@ -119,9 +124,12 @@ public class HUDElement {
 		clickImage = cImage;
 		hasClickImage = true;
 		hasRolloverImage = true;
-		
+		currentImage = normalImage;
 	}
 	
+	public Image getCurrentImage(){
+		return currentImage;
+	}
 	public Image getNormalImage() {
 		return normalImage;
 	}
@@ -181,4 +189,13 @@ public class HUDElement {
 		area.setLocation(area.x, y);
 	}
 	
+	public void setCurrentImageToNormalImage(){
+		currentImage = normalImage;
+	}
+	public void setCurrentImageToRolloverImage(){
+		currentImage = rolloverImage;
+	}
+	public void setCurrentImageToClickImage(){
+		currentImage = clickImage;
+	}
 }
