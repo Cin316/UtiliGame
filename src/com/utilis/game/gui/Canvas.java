@@ -10,7 +10,7 @@ import com.utilis.game.obj.Tile;
 
 
 public class Canvas extends JPanel{
-		
+	// TODO Re-export and clean up other code.
 	protected int tileWidth, tileHeight;
 	protected int tilesNumX, tilesNumY;
 	
@@ -69,23 +69,23 @@ public class Canvas extends JPanel{
 	}
 
 	public void update (Graphics g){
-	// initialize buffer
-	// TODO Re-export and clean up this code and other code.
-	if (dbImage == null){
-	dbImage = createImage (this.getSize().width, this.getSize().height); 
-	dbg = dbImage.getGraphics (); 
-	} 
-
-	// clear screen in background 
-	dbg.setColor (getBackground ()); 
-	dbg.fillRect (0, 0, this.getSize().width, this.getSize().height); 
-
-	// draw elements in background 
-	dbg.setColor (getForeground()); 
-	paint (dbg); 
-
-	// draw image on the screen 
-	g.drawImage (dbImage, 0, 0, this); 
+		
+		// initialize buffer//
+		if (dbImage == null){
+			dbImage = createImage (this.getSize().width, this.getSize().height); 
+			dbg = dbImage.getGraphics (); 
+		} 
+	
+		// clear screen in background 
+		dbg.setColor(getBackground ()); 
+		dbg.fillRect(0, 0, this.getSize().width, this.getSize().height); 
+	
+		// draw elements in background 
+		dbg.setColor(getForeground()); 
+		paintComponent(dbg); 
+	
+		// draw image on the screen 
+		g.drawImage(dbImage, 0, 0, this); 
 	} 
 	
 	protected void paintTiles(Graphics g){
