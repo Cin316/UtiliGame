@@ -2,11 +2,10 @@ package com.utilis.game.gui;
 
 import java.awt.Graphics;
 import java.awt.Image;
-
+import java.util.ArrayList;
 import javax.swing.JPanel;
 
-import com.utilis.game.obj.Screen;
-import com.utilis.game.obj.Tile;
+import com.utilis.game.obj.*;
 
 
 public class Canvas extends JPanel{
@@ -14,6 +13,8 @@ public class Canvas extends JPanel{
 	protected int tileWidth, tileHeight;
 	protected int tilesNumX, tilesNumY;
 	
+	protected ArrayList<HUDElement> HUDElements = new ArrayList<HUDElement>();
+	protected ArrayList<Entity> entities = new ArrayList<Entity>();
 	protected Screen screen;
 	
 	protected Image dbImage;
@@ -28,7 +29,6 @@ public class Canvas extends JPanel{
 		
 		screen = new Screen(tilesNumX, tilesNumY, tileWidth, tileHeight);
 	}
-	
 	
 	public Screen getScreen() {
 		return screen;
@@ -46,6 +46,12 @@ public class Canvas extends JPanel{
 	public int getTilesNumY() {
 		return tilesNumY;
 	}
+	public HUDElement getHUDElement(int i){
+		return HUDElements.get(i);
+	}
+	public Entity getEntity(int i){
+		return entities.get(i);
+	}
 	
 	public void setTileWidth(int tileWidth) {
 		this.tileWidth = tileWidth;
@@ -59,7 +65,20 @@ public class Canvas extends JPanel{
 	public void setTilesNumY(int tilesNumY) {
 		this.tilesNumY = tilesNumY;
 	}
-
+	public void setHUDElement(int i, HUDElement h){
+		HUDElements.set(i, h);
+	}
+	public void setEntity(int i, Entity e){
+		entities.set(i, e);
+	}
+	
+	public void add(HUDElement h){
+		HUDElements.add(h);
+	}
+	public void add(Entity e){
+		entities.add(e);
+	}
+	
 	public void paintComponent(Graphics g){
 		
 		paintTiles(g);
@@ -103,10 +122,19 @@ public class Canvas extends JPanel{
 		}
 	}
 	protected void paintEntities(Graphics g){
-		
+		Entity e;
+		for(int i=0; i<entities.size(); i++){
+			e = entities.get(i);
+			g.drawImage(e.getImage(), e.getX(), e.getY(), this);
+		}
 	}
 	protected void paintHUD(Graphics g){
-	
+		HUDElement h;
+		for(int i=0; i<HUDElements.size(); i++){
+			h = HUDElements.get(i);
+			g.drawImage(h.getCurrentImage(), h.getX(), h.getY(), this);
+		}
+		
 	}
 	
 }
