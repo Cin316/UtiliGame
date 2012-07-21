@@ -3,49 +3,109 @@ package com.utilis.game.obj;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 
+/**
+ * A class which stores <code>Colliders</code> and does the actual collision detection
+ * @author Cin316
+ * @see Collider
+ * @see CollisionBox
+ * @see Collision
+ */
 public class CollisionGroup {
 	
+	/**
+	 * A class which stores the values of a collision - the <code>Colliders</code> which collided, and whether or not a collision actually occurred.
+	 * @author Cin316
+	 * @see CollisionGroup
+	 */
 	public class Collision{
 		
+		/**
+		 * the list of <code>Colliders</code> which collided
+		 */
 		protected ArrayList<Collider> collided;
+		/**
+		 * whether or not a collision occurred
+		 */
 		protected boolean hasCollided;
 		
+		/**
+		 * Class constructor which sets <code>collided</code> to the specified <code>ArrayList</code> and sets <code>hasCollided</code> to <code>true</code>
+		 * @param c the <code>ArrayList</code> to set <code>collided</code> to
+		 */
 		public Collision(ArrayList<Collider> c){
 			collided = c;
 			hasCollided = true;
 		}
+		/**
+		 * Class constructor which sets <code>collided</code> to the specified <code>ArrayList</code> and sets <code>hasCollided</code> to the specified <code>boolean</code>
+		 * @param c the <code>ArrayList</code> to set <code>collided</code> to
+		 * @param b the boolean to set <code>hasCollided</code> to
+		 */
 		public Collision(ArrayList<Collider> c, boolean b){
 			collided = c;
 			hasCollided = b;
 		}
-
+		
+		/**
+		 * gets the current value of <code>collided</code>
+		 * @return the current <code>ArrayList</code> of <code>Colliders</code>
+		 */
 		public ArrayList<Collider> getCollided() {
 			return collided;
 		}
+		/**
+		 * gets the current value of <code>hasCollided</code>
+		 * @return the value of <code>hasCollided</code>
+		 */
 		public boolean hasCollided() {
 			return hasCollided;
 		}
 		
+		/**
+		 * sets <code>collided</code> to the specified <code>ArrayList</code>
+		 * @param collided <code>ArrayList</code> to set <code>collided</code> to
+		 */
 		public void setCollided(ArrayList<Collider> collided) {
 			this.collided = collided;
 		}
+		/**
+		 * sets <code>hasCollided</code> to the specified <code>boolean</code>
+		 * @param hasCollided <code>boolean</code> to set <code>hasCollided</code> to
+		 */
 		public void setHasCollided(boolean hasCollided) {
 			this.hasCollided = hasCollided;
 		}
 		
 	}
 	
+	/**
+	 * list of <code>Colliders</code> that collide with each other in this <code>CollisionGroup</code>
+	 */
 	protected ArrayList<Collider> colliders;
+	/**
+	 * whether or not any <code>Collision</code> is occurring right now
+	 */
 	protected boolean colliding = false;
 	
+	/**
+	 * Class constructor
+	 */
 	public CollisionGroup(){
 		
 	}
 	
+	/**
+	 * Adds the specified <code>Collider</code> to <code>colliders</code>
+	 * @param c <code>Collider</code> to be added to <code>colliders</code>
+	 */
 	public void add(Collider c){
 		colliders.add(c);
 	}
 	
+	/**
+	 * checks if any of the <code>Colliders</code> in this <code>CollisionGroup</code> are colliding, and returns an instance of <code>Collision</code>
+	 * @return instance of <code>Collision</code> with information about the current Collision
+	 */
 	public Collision checkCollision(){
 		
 		Collider collider1;
