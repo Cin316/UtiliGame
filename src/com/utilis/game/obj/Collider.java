@@ -1,6 +1,7 @@
 package com.utilis.game.obj;
 
 import java.awt.Rectangle;
+
 /**
  * An abstract class for all classes which can be used in collision detection.
  * 
@@ -15,13 +16,21 @@ public abstract class Collider {
 	 */
 	protected CollisionBox collide;
 	/**
-	 * x and y positions of this <code>Collider</code>, measured in pixels
+	 * x position of this <code>Collider</code>, measured in pixels
 	 */
-	protected int x, y;
+	protected int x;
 	/**
-	 * width and height of this <code>Collider</code>, measured in pixels
+	 * y position of this <code>Collider</code>, measured in pixels
 	 */
-	protected int width, height;
+	protected int y;
+	/**
+	 * width of this <code>Collider</code>, measured in pixels
+	 */
+	protected int width;
+	/**
+	 * height of this <code>Collider</code>, measured in pixels
+	 */
+	protected int height;
 	/**
 	 * <code>Rectangle</code> representing area of this <code>Collider</code>
 	 */
