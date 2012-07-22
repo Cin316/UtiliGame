@@ -57,12 +57,12 @@ public class HUDElement {
 	
 	/**
 	 * an <code>int</code> representing the rollover <code>imageType</code>, used in <code>HUDElement(Image, Image, int)</code>
-	 * @see HUDElement(Image, Image, int)
+	 * @see #HUDElement(Image, Image, int)
 	 */
 	public static final int ROLLOVER_IMAGE = 1;
 	/**
 	 * an <code>int</code> representing the clicked <code>imageType</code>, used in <code>HUDElement(Image, Image, int)</code>
-	 * @see HUDElement(Image, Image, int)
+	 * @see #HUDElement(Image, Image, int)
 	 */
 	public static final int CLICK_IMAGE = 2;
 	
@@ -148,6 +148,8 @@ public class HUDElement {
 	 * @param i <code>Image</code> to be used for values and as the <code>normalImage</code>
 	 * @param secondaryImage <code>Image</code> to be used for another <code>Image</code>
 	 * @param imageType <code>int</code> to specify whether the <code>secondaryImage</code> is a <code>clickImage</code> or a <code>rolloverImage</code>
+	 * @see #CLICK_IMAGE
+	 * @see #ROLLOVER_IMAGE
 	 */
 	public HUDElement(Image i, Image secondaryImage, int imageType){
 		x = 0;
