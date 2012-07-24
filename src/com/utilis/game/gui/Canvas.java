@@ -181,6 +181,9 @@ public class Canvas extends JPanel{
 		entities.add(e);
 	}
 	
+	/**
+	 * paints the elements on the <code>Canvas</code>
+	 */
 	protected void paintComponent(Graphics g){
 		
 		paintTiles(g);
@@ -190,7 +193,7 @@ public class Canvas extends JPanel{
 	}
 	
 	/**
-	 * Method to update the <code>Canvas</code>.  Uses double buffering.
+	 * Method to update painting of the <code>Canvas</code>.  Uses double buffering.
 	 */
 	public void update(Graphics g){
 		
@@ -212,6 +215,10 @@ public class Canvas extends JPanel{
 		g.drawImage(dbImage, 0, 0, this); 
 	} 
 	
+	/**
+	 * paints the <code>Tiles</code> onto the <code>Canvas</code>
+	 * @param g Graphics to paint on.
+	 */
 	protected void paintTiles(Graphics g){
 		
 		Tile tile;
@@ -226,6 +233,10 @@ public class Canvas extends JPanel{
 			}
 		}
 	}
+	/**
+	 * paints the <code>Entities</code> onto the <code>Canvas</code>
+	 * @param g Graphics to paint on.
+	 */
 	protected void paintEntities(Graphics g){
 		Entity e;
 		for(int i=0; i<entities.size(); i++){
@@ -233,6 +244,10 @@ public class Canvas extends JPanel{
 			g.drawImage(e.getImage(), e.getX(), e.getY(), this);
 		}
 	}
+	/**
+	 * paints the <code>HUDElements</code> onto the <code>Canvas</code>
+	 * @param g Graphics to paint on.
+	 */
 	protected void paintHUD(Graphics g){
 		HUDElement h;
 		for(int i=0; i<HUDElements.size(); i++){
