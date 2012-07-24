@@ -137,7 +137,7 @@ public class Canvas extends JPanel{
 	}
 	/**
 	 * sets the number of <code>Tiles</code> wide in the <code>Screen</code> to the specified value
-	 * @param tileNumX the number of <code>Tiles</code> wide to set the <code>Screen</code> to
+	 * @param tilesNumX the number of <code>Tiles</code> wide to set the <code>Screen</code> to
 	 */
 	public void setTilesNumX(int tilesNumX) {
 		this.tilesNumX = tilesNumX;
