@@ -137,14 +137,14 @@ public class Canvas extends JPanel{
 	}
 	/**
 	 * sets the number of <code>Tiles</code> wide in the <code>Screen</code> to the specified value
-	 * @param tileWidth the number of <code>Tiles</code> wide to set the <code>Screen</code> to
+	 * @param tileHeight the number of <code>Tiles</code> wide to set the <code>Screen</code> to
 	 */
 	public void setTilesNumX(int tilesNumX) {
 		this.tilesNumX = tilesNumX;
 	}
 	/**
 	 * sets the number of <code>Tiles</code> high in the <code>Screen</code> to the specified value
-	 * @param tileWidth the number of <code>Tiles</code> high to set the <code>Screen</code> to
+	 * @param tileNumY the number of <code>Tiles</code> high to set the <code>Screen</code> to
 	 */
 	public void setTilesNumY(int tilesNumY) {
 		this.tilesNumY = tilesNumY;
@@ -175,7 +175,7 @@ public class Canvas extends JPanel{
 	}
 	/**
 	 * adds the specified <code>Entity</code> to the <code>ArrayList</code> of <code>Entities</code>
-	 * @param h the <code>Entity</code> to be added to the <code>ArrayList</code>
+	 * @param e the <code>Entity</code> to be added to the <code>ArrayList</code>
 	 */
 	public void add(Entity e){
 		entities.add(e);

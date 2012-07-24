@@ -124,28 +124,28 @@ public class Entity extends Collider{
 	
 	/**
 	 * decreases the <code>y</code> position of this <code>Entity</code> the specified number of pixels
-	 * @param number of pixels to move up
+	 * @param n number of pixels to move up
 	 */
 	public void moveUp(int n){
 		y -= n;
 	}
 	/**
 	 * increases the <code>y</code> position of this <code>Entity</code> the specified number of pixels
-	 * @param number of pixels to move down
+	 * @param n number of pixels to move down
 	 */
 	public void moveDown(int n){
 		y += n;
 	}
 	/**
 	 * decreases the <code>x</code> position of this <code>Entity</code> the specified number of pixels
-	 * @param number of pixels to move left
+	 * @param n number of pixels to move left
 	 */
 	public void moveLeft(int n){
 		x -= n;
 	}
 	/**
 	 * increases the <code>x</code> position of this <code>Entity</code> the specified number of pixels
-	 * @param number of pixels to move right
+	 * @param n number of pixels to move right
 	 */
 	public void moveRight(int n){
 		x += n;
