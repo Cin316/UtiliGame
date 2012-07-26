@@ -22,7 +22,7 @@ public class CollisionBox {
 	 * two-dimensional array representing which pixels are solid points that collide with other points.  Its size is equivalent to <code>sizeX</code> and <code>sizeY</code>, respectively 
 	 */
 	protected boolean[][] collide;
-	
+	// TODO Add method with boolean non array.
 	/**
 	 * class constructor to create blank <code>collide<code> with specified width and height
 	 * @param X width of <code>CollisionBox</code> to be created
@@ -35,6 +35,23 @@ public class CollisionBox {
 		for(int x=0; x>=X; x++){
 			for(int y=0; y>=Y; y++){
 				collide[x][y] = false;
+			}
+		}
+		
+	}
+	/**
+	 * class constructor to create blank <code>collide<code> with specified width, height, and boolean value
+	 * @param X width of <code>CollisionBox</code> to be created
+	 * @param Y height of <code>CollisionBox</code> to be created
+	 * @param b <code>boolean</code> value to assign to every <code>boolean</code> in <code>collide</code>
+	 */
+	public CollisionBox(int X, int Y, boolean b){
+		
+		collide = new boolean[X][Y];
+		
+		for(int x=0; x>=X; x++){
+			for(int y=0; y>=Y; y++){
+				collide[x][y] = b;
 			}
 		}
 		
