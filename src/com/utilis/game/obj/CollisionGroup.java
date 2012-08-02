@@ -116,14 +116,14 @@ public class CollisionGroup {
 		boolean collision = false;
 		ArrayList<Collider> collided = new ArrayList<Collider>();
 		
-		// TODO Add code if there is only 1 collider to check;
+		// TODO Add code if there is only 1 collider to check.
 		for(int c1=0; c1 <= colliders.size(); c1++){
 			for(int c2=0; c2 <= colliders.size(); c2++){
 				
 				collider1 = colliders.get(c1);
 				collider2 = colliders.get(c2);
 				
-				if(c1==c2){
+				if(c1==c2 || ((collider1 instanceof Tile)&&(collider2 instanceof Tile)) ){
 					//Skips collision checking.
 					collision = false;
 				}else{
