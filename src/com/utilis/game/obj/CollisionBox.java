@@ -22,7 +22,6 @@ public class CollisionBox {
 	 * two-dimensional array representing which pixels are solid points that collide with other points.  Its size is equivalent to <code>sizeX</code> and <code>sizeY</code>, respectively 
 	 */
 	protected boolean[][] collide;
-	// TODO Add method with boolean non array.
 	/**
 	 * class constructor to create blank <code>collide<code> with specified width and height
 	 * @param X width of <code>CollisionBox</code> to be created
