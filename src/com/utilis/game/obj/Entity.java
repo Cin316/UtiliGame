@@ -5,6 +5,8 @@ import java.awt.MediaTracker;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
+import javax.swing.ImageIcon;
+
 /**
  * Class representing an object that is not locked to a grid and can collide with other <code>Colliders</code>
  * @author Cin316
@@ -42,15 +44,10 @@ public class Entity extends Collider{
 		x = 0;
 		y = 0;
 		
-		try {
-			MediaTracker mTracker = new MediaTracker(null); //May throw NullPointerException.
-			mTracker.addImage(image,1);
-			mTracker.waitForID(1);
-			width = image.getWidth(null);
-			height = image.getHeight(null);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		ImageIcon iicon = new ImageIcon(image);
+		width = iicon.getIconWidth();
+		height = iicon.getIconHeight();
+		
 		rect = new Rectangle(x, y, width, height);
 		collide = new CollisionBox(width, height);
 		
