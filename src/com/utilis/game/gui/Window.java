@@ -36,7 +36,7 @@ public class Window extends JFrame {
 	protected Canvas canvas;
 	
 	/**
-	 * Class constructor.
+	 * Class constructor with default <code>Canvas</code>.
 	 * @param xTiles the number of <code>Tiles</code> wide this <code>Window</code> is
 	 * @param yTiles the number of <code>Tiles</code> high this <code>Window</code> is
 	 * @param tWidth the width of the <code>Tiles</code> in this <code>Window</code>
@@ -50,6 +50,24 @@ public class Window extends JFrame {
 		tileHeight = tHeight;
 		
 		canvas = new Canvas(xTiles, yTiles, tWidth, tHeight);
+		this.add(canvas);
+		
+		this.setSize(tilesNumX*tileWidth, (22)+ tilesNumY*tileHeight); //22 is height offset.
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setVisible(true);
+	}
+	/**
+	 * Class constructor which creates <code>Canvas</code> and values from specified <code>Canvas</code>.
+	 * @param c <code>Canvas</code> to use to set values to.
+	 */
+	public Window(Canvas c){
+		
+		tilesNumX = c.getTilesNumX();
+		tilesNumY = c.getTilesNumY();
+		tileWidth = c.getTileWidth();
+		tileHeight = c.getTileHeight();
+		
+		canvas = c;
 		this.add(canvas);
 		
 		this.setSize(tilesNumX*tileWidth, (22)+ tilesNumY*tileHeight); //22 is height offset.
@@ -100,6 +118,7 @@ public class Window extends JFrame {
 	 */
 	public void setTileWidth(int tileWidth) {
 		this.tileWidth = tileWidth;
+		canvas.setTileWidth(tileWidth);//ass to other set methods.
 	}
 	/**
 	 * sets the height of the <code>Tiles</code> to the specified value
