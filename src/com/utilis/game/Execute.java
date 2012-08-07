@@ -5,7 +5,7 @@ import com.utilis.game.gui.*;
 
 public class Execute {
 	
-	public static String version = "v. 1.1 Beta";
+	public static String version = "v. 1.1";
 	
 	public static void main(String[] args) {
 		
