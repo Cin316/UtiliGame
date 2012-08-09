@@ -12,15 +12,23 @@ public class ScrollingEntity extends Entity {
 	
 	public ScrollingEntity(int w, int h) {
 		super(w, h);
+		realX = 0;
+		realY = 0;
 	}
 	public ScrollingEntity(Image i) {
 		super(i);
+		realX = 0;
+		realY = 0;
 	}
 	public ScrollingEntity(CollisionBox c) {
 		super(c);
+		realX = 0;
+		realY = 0;
 	}
 	public ScrollingEntity(Image i, CollisionBox c) {
 		super(i, c);
+		realX = 0;
+		realY = 0;
 	}
 	
 	public void moveUp(int n){
@@ -51,9 +59,11 @@ public class ScrollingEntity extends Entity {
 	}
 	
 	public void setRealX(int realX) {
+		scroller.setOffsetX(scroller.getOffsetX()+(realX - this.realX));
 		this.realX = realX;
 	}
 	public void setRealY(int realY) {
+		scroller.setOffsetY(scroller.getOffsetY()+(realY - this.realY));
 		this.realY = realY;
 	}
 	public void setScroller(ScrollingCanvas scroller) {
