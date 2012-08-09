@@ -3,6 +3,8 @@ package com.utilis.game.obj;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
+import javax.swing.ImageIcon;
+
 /**
  * A class representing any kind of custom GUI element
  * @author Cin316
@@ -126,15 +128,11 @@ public class HUDElement {
 	public HUDElement(Image i){
 		x = 0;
 		y = 0;
-		try {
-			MediaTracker mTracker = new MediaTracker(null); //May throw NullPointerException.
-			mTracker.addImage(i ,1);
-			mTracker.waitForID(1);
-			width = i.getWidth(null);
-			height = i.getHeight(null);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		
+		ImageIcon iicon = new ImageIcon(i);
+		width = iicon.getIconWidth();
+		height = iicon.getIconHeight();
+		
 		area = new Rectangle(x, y, width, height);
 		normalImage = i;
 		rolloverImage = null;
@@ -154,15 +152,11 @@ public class HUDElement {
 	public HUDElement(Image i, Image secondaryImage, int imageType){
 		x = 0;
 		y = 0;
-		try {
-			MediaTracker mTracker = new MediaTracker(null); //May throw NullPointerException.
-			mTracker.addImage(i ,1);
-			mTracker.waitForID(1);
-			width = i.getWidth(null);
-			height = i.getHeight(null);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		
+		ImageIcon iicon = new ImageIcon(i);
+		width = iicon.getIconWidth();
+		height = iicon.getIconHeight();
+		
 		area = new Rectangle(x, y, width, height);
 		normalImage = i;
 		if (imageType==HUDElement.ROLLOVER_IMAGE){
@@ -189,15 +183,11 @@ public class HUDElement {
 	public HUDElement(Image i, Image rImage, Image cImage){
 		x = 0;
 		y = 0;
-		try {
-			MediaTracker mTracker = new MediaTracker(null); //May throw NullPointerException.
-			mTracker.addImage(i ,1);
-			mTracker.waitForID(1);
-			width = i.getWidth(null);
-			height = i.getHeight(null);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		
+		ImageIcon iicon = new ImageIcon(i);
+		width = iicon.getIconWidth();
+		height = iicon.getIconHeight();
+		
 		area = new Rectangle(x, y, width, height);
 		normalImage = i;
 		rolloverImage = rImage;
