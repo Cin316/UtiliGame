@@ -197,13 +197,12 @@ public class Canvas extends JPanel{
 		dbg.fillRect(0, 0, this.getSize().width, this.getSize().height); 
 		
 		// draw elements in background 
-		dbg.setColor(getForeground()); 
-		paintComponent(dbg);
+		dbg.setColor(getForeground());
 		
 		//Paint things off screen.
-		paintTiles(g);
-		paintEntities(g);
-		paintHUD(g);
+		paintTiles(dbg);
+		paintEntities(dbg);
+		paintHUD(dbg);
 		
 		// draw image on the screen 
 		g.drawImage(dbImage, 0, 0, this);
