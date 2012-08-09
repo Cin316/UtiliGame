@@ -26,6 +26,7 @@ public class ScrollingCanvas extends Canvas {
 	}
 	
 	public void setCenterEntity(ScrollingEntity sc){
+		sc.setScroller(this);
 		centerEntity = sc;
 	}
 	public void setOffsetX(int offsetX) {
