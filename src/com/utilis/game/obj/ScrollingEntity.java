@@ -59,11 +59,11 @@ public class ScrollingEntity extends Entity {
 	}
 	
 	public void setRealX(int realX) {
-		scroller.setOffsetX(scroller.getOffsetX()+(realX - this.realX));
+		scroller.setOffsetX(scroller.getOffsetX()-(realX - this.realX));
 		this.realX = realX;
 	}
 	public void setRealY(int realY) {
-		scroller.setOffsetY(scroller.getOffsetY()+(realY - this.realY));
+		scroller.setOffsetY(scroller.getOffsetY()-(realY - this.realY));
 		this.realY = realY;
 	}
 	public void setScroller(ScrollingCanvas scroller) {
