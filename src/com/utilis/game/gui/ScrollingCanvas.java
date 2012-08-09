@@ -75,8 +75,8 @@ public class ScrollingCanvas extends Canvas {
 			for(int y=0; y<tilesNumY; y++){
 				
 				tile = screen.getTile(x, y);
-				g.drawImage(tile.getImage(), offsetX+tile.getX(), offsetY+tile.getY(), tileWidth, tileHeight, this);
-				//g.drawImage(tile.getImage(), tile.getX(), tile.getY(), this); for non resized images.
+				g.drawImage(tile.getImage(), tile.getX()-offsetX, tile.getY()-offsetY, tileWidth, tileHeight, this);
+				//g.drawImage(tile.getImage(), tile.getX()-offsetX, tile.getY()-offsetY, this); for non resized images.
 				
 			}
 		}
@@ -85,7 +85,11 @@ public class ScrollingCanvas extends Canvas {
 		Entity e;
 		for(int i=0; i<entities.size(); i++){
 			e = entities.get(i);
-			g.drawImage(e.getImage(), offsetX+e.getX(), offsetY+e.getY(), this);
+			if (e == centerEntity){
+				g.drawImage(e.getImage(), ((ScrollingEntity)e).getRealX(), ((ScrollingEntity)e).getRealY(), this);
+			}else{
+				g.drawImage(e.getImage(), e.getX()-offsetX, e.getY()-offsetY, this);
+			}
 		}
 	}
 	
