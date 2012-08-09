@@ -37,30 +37,34 @@ public class ScrollingCanvas extends Canvas {
 	
 	protected void paintComponent(Graphics g){
 		
+		// initialize buffer//
+		if (dbImage == null){
+			dbImage = createImage(this.getSize().width, this.getSize().height); 
+			dbg = dbImage.getGraphics(); 
+		} 
+		
+		// clear screen in background 
+		dbg.setColor(getBackground()); 
+		dbg.fillRect(0, 0, this.getSize().width, this.getSize().height); 
+		
+		// draw elements in background 
+		dbg.setColor(getForeground()); 
+		paintComponent(dbg);
+		
+		//Paint things off screen.
 		paintTiles(g);
 		paintEntities(g);
 		paintHUD(g);
+		
+		// draw image on the screen 
+		g.drawImage(dbImage, 0, 0, this);
 		
 	}
 	
 	public void update(Graphics g){
 		
-		// initialize buffer//
-		if (dbImage == null){
-			dbImage = createImage (this.getSize().width, this.getSize().height); 
-			dbg = dbImage.getGraphics (); 
-		} 
-	
-		// clear screen in background 
-		dbg.setColor(getBackground ()); 
-		dbg.fillRect(0, 0, this.getSize().width, this.getSize().height); 
-	
-		// draw elements in background 
-		dbg.setColor(getForeground()); 
-		paintComponent(dbg); 
-	
-		// draw image on the screen 
-		g.drawImage(dbImage, 0, 0, this); 
+		paint(g);
+		
 	} 
 	
 	protected void paintTiles(Graphics g){
