@@ -127,6 +127,7 @@ public class Canvas extends JPanel{
 	 */
 	public void setTileWidth(int tileWidth) {
 		this.tileWidth = tileWidth;
+		screen.setTileWidth(tileWidth);
 	}
 	/**
 	 * sets the height of the <code>Tiles</code> in the <code>Screen</code> to the specified value
@@ -134,6 +135,7 @@ public class Canvas extends JPanel{
 	 */
 	public void setTileHeight(int tileHeight) {
 		this.tileHeight = tileHeight;
+		screen.setTileHeight(tileHeight);
 	}
 	/**
 	 * sets the number of <code>Tiles</code> wide in the <code>Screen</code> to the specified value
@@ -141,6 +143,7 @@ public class Canvas extends JPanel{
 	 */
 	public void setTilesNumX(int tilesNumX) {
 		this.tilesNumX = tilesNumX;
+		screen.setNumOfTilesX(tilesNumX);
 	}
 	/**
 	 * sets the number of <code>Tiles</code> high in the <code>Screen</code> to the specified value
@@ -148,6 +151,7 @@ public class Canvas extends JPanel{
 	 */
 	public void setTilesNumY(int tilesNumY) {
 		this.tilesNumY = tilesNumY;
+		screen.setNumOfTilesY(tilesNumY);
 	}
 	/**
 	 * sets the <code>HUDElement</code> specified by the <code>int</code> to the value specified by <code>h</code>
