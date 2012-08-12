@@ -204,9 +204,7 @@ public class Canvas extends JPanel{
 		dbg.setColor(getForeground());
 		
 		//Paint things off screen.
-		paintTiles(dbg);
-		paintEntities(dbg);
-		paintHUD(dbg);
+		draw(g);
 		
 		// draw image on the screen 
 		g.drawImage(dbImage, 0, 0, this);
@@ -221,6 +219,17 @@ public class Canvas extends JPanel{
 		paint(g);
 		
 	} 
+	
+	/**
+	 * Method to paint this <code>Canvas</code> on screen.  Override this to use double buffering of with custom code.
+	 */
+	public void draw(Graphics g){
+		
+		paintTiles(g);
+		paintEntities(g);
+		paintHUD(g);
+		
+	}
 	
 	/**
 	 * paints the <code>Tiles</code> onto the <code>Canvas</code>
