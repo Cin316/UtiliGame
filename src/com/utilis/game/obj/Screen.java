@@ -98,4 +98,59 @@ public class Screen {
 		tiles[x][y] = t;
 	}
 	
+	/**
+	 * sets the width of the <code>Tiles</code> in this <code>Screen</code> to the specified <code>int</code>, measured in pixels
+	 * @param tileWidth the width to set the <code>Tiles</code> in this <code>Screen</code> to
+	 */
+	public void setTileWidth(int tileWidth) {
+		this.tileWidth = tileWidth;
+		
+		updateTiles();
+	}
+	/**
+	 * sets the height of the <code>Tiles</code> in this <code>Screen</code> to the specified <code>int</code>, measured in pixels
+	 * @param tileHeight the height to set the <code>Tiles</code> in this <code>Screen</code> to
+	 */
+	public void setTileHeight(int tileHeight) {
+		this.tileHeight = tileHeight;
+		
+		updateTiles();
+	}
+	/**
+	 * sets the number of <code>Tiles</code> high this <code>Screen</code> is to the specified <code>int</code>
+	 * @param numOfTilesX the number of <code>Tiles</code> high to set this <code>Screen</code> to
+	 */
+	public void setNumOfTilesX(int numOfTilesX) {
+		this.numOfTilesX = numOfTilesX;
+		
+		updateTiles();
+	}
+	/**
+	 * sets the number of <code>Tiles</code> wide this <code>Screen</code> is to the specified <code>int</code>
+	 * @param numOfTilesY the number of <code>Tiles</code> wide to set this <code>Screen</code> to
+	 */
+	public void setNumOfTilesY(int numOfTilesY) {
+		this.numOfTilesY = numOfTilesY;
+		
+		updateTiles();
+	}
+	
+	private void updateTiles(){
+		
+		Tile[][] t = new Tile[numOfTilesX][numOfTilesY];
+		
+		for(int x=0; x<numOfTilesX; x++){
+			for(int y=0; y<numOfTilesY; y++){
+				if(t[x][y] == null){
+					t[x][y] = new Tile(tileWidth, tileHeight, x*tileWidth, y*tileHeight);
+				}else{
+					t[x][y] = tiles[x][y];
+				}
+			}
+		}
+		
+		tiles = t;
+		
+	}
+	
 }
