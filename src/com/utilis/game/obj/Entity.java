@@ -104,6 +104,7 @@ public class Entity extends Collider{
 	public void setPos(int x, int y){
 		this.x = x;
 		this.y = y;
+		rect.setLocation(x, y);
 	}
 	/**
 	 * sets the position of the <code>Entity</code> to the specified coordinates, and sets the <code>width</code> and <code>height</code> to the specified values
@@ -117,6 +118,7 @@ public class Entity extends Collider{
 		this.y = y;
 		this.width = width;
 		this.height = height;
+		rect.setBounds(x, y, width, height);
 	}
 	
 	/**
@@ -125,6 +127,7 @@ public class Entity extends Collider{
 	 */
 	public void moveUp(int n){
 		y -= n;
+		rect.setLocation(x, y);
 	}
 	/**
 	 * increases the <code>y</code> position of this <code>Entity</code> the specified number of pixels
@@ -132,6 +135,7 @@ public class Entity extends Collider{
 	 */
 	public void moveDown(int n){
 		y += n;
+		rect.setLocation(x, y);
 	}
 	/**
 	 * decreases the <code>x</code> position of this <code>Entity</code> the specified number of pixels
@@ -139,6 +143,7 @@ public class Entity extends Collider{
 	 */
 	public void moveLeft(int n){
 		x -= n;
+		rect.setLocation(x, y);
 	}
 	/**
 	 * increases the <code>x</code> position of this <code>Entity</code> the specified number of pixels
@@ -146,6 +151,7 @@ public class Entity extends Collider{
 	 */
 	public void moveRight(int n){
 		x += n;
+		rect.setLocation(x, y);
 	}
 	
 }
