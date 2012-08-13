@@ -91,7 +91,7 @@ public class CollisionGroup {
 	 * Class constructor
 	 */
 	public CollisionGroup(){
-		
+		colliders = new ArrayList<Collider>();
 	}
 	
 	/**
