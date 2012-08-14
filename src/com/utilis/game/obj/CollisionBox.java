@@ -31,8 +31,8 @@ public class CollisionBox {
 		
 		collide = new boolean[X][Y];
 		
-		for(int x=0; x>=X; x++){
-			for(int y=0; y>=Y; y++){
+		for(int x=0; x<X; x++){
+			for(int y=0; y<Y; y++){
 				collide[x][y] = false;
 			}
 		}
@@ -48,8 +48,8 @@ public class CollisionBox {
 		
 		collide = new boolean[X][Y];
 		
-		for(int x=0; x>=X; x++){
-			for(int y=0; y>=Y; y++){
+		for(int x=0; x<X; x++){
+			for(int y=0; y<Y; y++){
 				collide[x][y] = b;
 			}
 		}
