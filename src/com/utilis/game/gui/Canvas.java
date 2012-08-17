@@ -186,7 +186,7 @@ public class Canvas extends JPanel{
 	}
 	
 	/**
-	 * paints the elements on the <code>Canvas</code>
+	 * Paints the elements on the <code>Canvas</code>.  Uses double buffering.
 	 */
 	protected void paintComponent(Graphics g){
 		
@@ -212,7 +212,8 @@ public class Canvas extends JPanel{
 	}
 	
 	/**
-	 * Method to update painting of the <code>Canvas</code>.  Uses double buffering.
+	 * method to update painting of the <code>Canvas</code>
+	 * @param g Graphics to paint on.
 	 */
 	public void update(Graphics g){
 		
@@ -222,6 +223,7 @@ public class Canvas extends JPanel{
 	
 	/**
 	 * Method to paint this <code>Canvas</code> on screen.  Override this to use double buffering of with custom code.
+	 * @param g Graphics to paint on.
 	 */
 	public void draw(Graphics g){
 		
