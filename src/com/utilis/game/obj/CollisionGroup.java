@@ -116,16 +116,16 @@ public class CollisionGroup {
 		boolean collision = false;
 		ArrayList<Collider> collided = new ArrayList<Collider>();
 		
-		if( !(collided.size() == 1 || collided.size() == 0) ){
-			for(int c1=0; c1 <= colliders.size(); c1++){
-				for(int c2=0; c2 <= colliders.size(); c2++){
+		if( !(colliders.size() == 1 || colliders.size() == 0) ){
+			for(int c1=0; c1 < colliders.size(); c1++){
+				for(int c2=0; c2 < colliders.size(); c2++){
 					
 					collider1 = colliders.get(c1);
 					collider2 = colliders.get(c2);
 					
 					if(c1==c2 || ((collider1 instanceof Tile)&&(collider2 instanceof Tile)) ){
 						//Skips collision checking.
-						collision = false;
+						collision = false || collision;
 					}else{
 						//Checks collision.
 						boolean intersects = false;
@@ -137,14 +137,14 @@ public class CollisionGroup {
 							offset1Y = intersection.y - collider1.getY();
 							offset2Y = intersection.y - collider2.getY();
 							
-							for(int x=0; x <= intersection.getWidth(); x++){
-								for(int y=0; y <= intersection.getHeight(); y++){
-									collision = collider1.getCollisionBox().getCollision(collider1.getX()+offset1X+x, collider1.getY()+offset1Y+y) && collider2.getCollisionBox().getCollision(collider2.getX()+offset2X+x, collider2.getY()+offset2Y+y) || collision;
+							for(int x=0; x < intersection.getWidth(); x++){
+								for(int y=0; y < intersection.getHeight(); y++){
+									collision = (collider1.getCollisionBox().getCollision(offset1X+x, offset1Y+y) && collider2.getCollisionBox().getCollision(offset2X+x, offset2Y+y)) || collision;
 									
 								}
 							}
 						}else{
-							collision = false;
+							collision = false || collision;
 						}
 						if (collision){
 							collided.add(collider1);
