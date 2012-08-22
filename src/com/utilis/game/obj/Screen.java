@@ -141,10 +141,14 @@ public class Screen {
 		
 		for(int x=0; x<numOfTilesX; x++){
 			for(int y=0; y<numOfTilesY; y++){
-				if(t[x][y] == null){
+				if(x>tiles.length && y>tiles[0].length){
 					t[x][y] = new Tile(tileWidth, tileHeight, x*tileWidth, y*tileHeight);
 				}else{
 					t[x][y] = tiles[x][y];
+					t[x][y].setHeight(tileHeight);
+					t[x][y].setWidth(tileWidth);
+					t[x][y].setX(x*tileWidth);
+					t[x][y].setY(y*tileHeight);
 				}
 			}
 		}
