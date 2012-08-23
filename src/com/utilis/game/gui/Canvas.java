@@ -122,6 +122,13 @@ public class Canvas extends JPanel{
 	}
 	
 	/**
+	 * Sets the current <code>Screen</code> to the specified value.
+	 * @param s <code>Screen</code> to set the current <code>Screen</code> to
+	 */
+	public void setScreen(Screen s){
+		screen = s;
+	}
+	/**
 	 * sets the width of the <code>Tiles</code> in the <code>Screen</code> to the specified value
 	 * @param tileWidth the width to set the <code>Tiles</code> in the <code>Screen</code> to
 	 */
