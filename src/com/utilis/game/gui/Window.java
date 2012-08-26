@@ -50,7 +50,7 @@ public class Window extends JFrame {
 		tileHeight = tHeight;
 		
 		canvas = new Canvas(xTiles, yTiles, tWidth, tHeight);
-		this.add(canvas);
+		this.setContentPane(canvas);
 		
 		this.setSize(tilesNumX*tileWidth, (22)+ tilesNumY*tileHeight); //22 is height offset.
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -68,7 +68,7 @@ public class Window extends JFrame {
 		tileHeight = c.getTileHeight();
 		
 		canvas = c;
-		this.add(canvas);
+		this.setContentPane(canvas);
 		
 		this.setSize(tilesNumX*tileWidth, (22)+ tilesNumY*tileHeight); //22 is height offset.
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
