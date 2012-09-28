@@ -76,6 +76,13 @@ public class Canvas extends JPanel{
 	 */
 	public Canvas(Screen s){
 		
+		tilesNumX = s.getNumOfTilesX();
+		tilesNumY = s.getNumOfTilesY();
+		tileWidth = s.getTileWidth();
+		tileHeight = s.getTileHeight();
+		
+		screen = s;
+		
 	}
 	
 	/**
