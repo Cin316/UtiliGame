@@ -55,7 +55,7 @@ public class Canvas extends JPanel{
 	protected Graphics dbg;
 	
 	/**
-	 * Class constructor creates <code>Screen</code> with specified values and initializes
+	 * Class constructor creates <code>Screen</code> with specified values.
 	 * @param xTiles the number of <code>Tiles</code> wide the <code>Screen</code> to be created will be
 	 * @param yTiles the number of <code>Tiles</code> high the <code>Screen</code> to be created will be
 	 * @param tWidth the width of the <code>Tiles</code>
@@ -69,6 +69,13 @@ public class Canvas extends JPanel{
 		tileHeight = tHeight;
 		
 		screen = new Screen(tilesNumX, tilesNumY, tileWidth, tileHeight);
+	}
+	/**
+	 * Class constructor creates <code>Screen</code> with specified values and initializes
+	 * @param s <code>Screen</code> to set the Screen to.
+	 */
+	public Canvas(Screen s){
+		
 	}
 	
 	/**

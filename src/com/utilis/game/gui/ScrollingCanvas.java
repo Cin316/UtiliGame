@@ -36,6 +36,13 @@ public class ScrollingCanvas extends Canvas {
 	public ScrollingCanvas(int xTiles, int yTiles, int tWidth, int tHeight){
 		super(xTiles, yTiles, tWidth, tHeight);
 	}
+	/**
+	 * Class constructor creates <code>Screen</code> with specified values and initializes
+	 * @param s <code>Screen</code> to set the Screen to.
+	 */
+	public ScrollingCanvas(Screen s){
+		super(s);
+	}
 	
 	/**
 	 * returns the current <code>ScrollingEntity</code> that is controlling this <code>ScrollingCanvas</code>
