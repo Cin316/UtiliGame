@@ -2,13 +2,15 @@ package com.utilis.game.obj;
 
 import java.awt.image.*;
 
+import com.utilis.StringedObj;
+
 /**
  * A class for storing the actual solid points that collide with another <code>Collider</code>.
  * @author Cin316
  * @see Collider
  * @see CollisionGroup
  */
-public class CollisionBox {
+public class CollisionBox implements StringedObj{
 	
 	/**
 	 * width of the <code>CollisionBox</code>, measured in pixels
@@ -134,6 +136,61 @@ public class CollisionBox {
 		}else{
 			return false;
 		}
+	}
+	
+	private String booleanToString(boolean b){
+		String out = "";
+		if (b==true){
+			out = "1";
+		}else if (b==false){
+			out = "0";
+		}
+		return out;
+	}
+	private boolean stringToBoolean(String s){
+		boolean out = false;
+		if (s=="1"){
+			out = true;
+		}else if (s=="0"){
+			out = false;
+		}
+		return out;
+	}
+	
+	public StringedObj loadString(String string) {
+		int height = 0;
+		int width = 0;
+		StringedObj sObj;
+		
+		//Gets image width and height;
+		boolean widthCalcd = false;
+		for(int i=0; i>string.length(); i++){
+			if (string.charAt(i)==(',') && !widthCalcd){
+				width++;
+			}
+			if (string.charAt(i)==(';')){
+				height++;
+				widthCalcd = true;
+			} 
+		}
+		
+		String[][] colors = new String[width][height];
+		
+		return sObj;
+	}
+
+	public String saveString() {
+		String word = "";
+		for(int y=0; y<sizeY;y++){
+			for(int x=0; x<sizeX;x++){
+				
+				word += booleanToString(getCollision(x, y));
+				word += ","; //Indicates end of boolean data.
+			}
+			word += ";"; //Indicates newline of data.
+		}
+		return word;
+		
 	}
 	
 }

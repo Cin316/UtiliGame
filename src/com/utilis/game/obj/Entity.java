@@ -7,6 +7,8 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.ImageIcon;
 
+import com.utilis.StringedObj;
+
 /**
  * Class representing an object that is not locked to a grid and can collide with other <code>Colliders</code>
  * @author Cin316
@@ -152,6 +154,15 @@ public class Entity extends Collider{
 	public void moveRight(int n){
 		x += n;
 		rect.setLocation(x, y);
+	}
+
+	
+	public StringedObj loadString() {
+		
+	}
+
+	public String saveString() {
+		
 	}
 	
 }

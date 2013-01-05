@@ -2,6 +2,8 @@ package com.utilis.game.obj;
 
 import java.awt.Rectangle;
 
+import com.utilis.StringedObj;
+
 /**
  * An abstract class for all classes which can be used in collision detection.
  * 
@@ -9,7 +11,7 @@ import java.awt.Rectangle;
  * @see CollisionGroup
  * @see CollisionBox
  */
-public abstract class Collider {
+public abstract class Collider implements StringedObj{
 	
 	/**
 	 * <code>CollisionBox</code> for this <code>Collider</code>

@@ -2,6 +2,7 @@ package com.utilis.game.obj;
 
 import java.awt.Image;
 import java.awt.Rectangle;
+import com.utilis.StringedObj;
 
 /**
  * A class representing an object that is locked to a grid and cannot move.
@@ -14,6 +15,18 @@ public class Tile extends Collider{
 	 * an <code>Image</code> representing this <code>Tile</code>
 	 */
 	protected Image image;
+	
+	public String saveString(){
+		String string = "t(cb=";
+		string += this.collide.toString() + ",";
+		string += "x=" + this.x + ",";
+		string += "y=" + this.y + ",";
+		
+		return string;
+	}
+	public static Tile loadString(){
+		
+	}
 	
 	/**
 	 * class constructor to create a blank <code>Tile</code> with the specified values.
