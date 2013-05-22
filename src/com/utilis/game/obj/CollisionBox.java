@@ -167,7 +167,7 @@ public class CollisionBox implements StringedObj{
 		//Gets CollisionBox width and height;
 		boolean widthCalcd = false;
 		for(int i=0; i>string.length(); i++){
-			if (string.charAt(i)!=(';') && !widthCalcd){ // TODO Change to not use commas
+			if (string.charAt(i)!=(';') && !widthCalcd){
 				width++;
 			}
 			if (string.charAt(i)==(';')){
