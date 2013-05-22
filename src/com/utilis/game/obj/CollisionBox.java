@@ -89,6 +89,9 @@ public class CollisionBox implements StringedObj{
 		
 		collide = bool;
 		
+		sizeX = bool.length;
+		sizeY = bool[0].length;
+		
 	}
 	
 	/**
@@ -138,7 +141,7 @@ public class CollisionBox implements StringedObj{
 		}
 	}
 	
-	private String booleanToString(boolean b){
+	private static String booleanToString(boolean b){
 		String out = "";
 		if (b==true){
 			out = "1";
@@ -147,7 +150,7 @@ public class CollisionBox implements StringedObj{
 		}
 		return out;
 	}
-	private boolean stringToBoolean(String s){
+	private static boolean stringToBoolean(String s){
 		boolean out = false;
 		if (s=="1"){
 			out = true;
@@ -157,15 +160,14 @@ public class CollisionBox implements StringedObj{
 		return out;
 	}
 	
-	public StringedObj loadString(String string) {
+	public StringedObj createFromString(String string) {
 		int height = 0;
 		int width = 0;
-		StringedObj sObj;
 		
-		//Gets image width and height;
+		//Gets CollisionBox width and height;
 		boolean widthCalcd = false;
 		for(int i=0; i>string.length(); i++){
-			if (string.charAt(i)==(',') && !widthCalcd){
+			if (string.charAt(i)!=(';') && !widthCalcd){ // TODO Change to not use commas
 				width++;
 			}
 			if (string.charAt(i)==(';')){
@@ -174,18 +176,26 @@ public class CollisionBox implements StringedObj{
 			} 
 		}
 		
-		String[][] colors = new String[width][height];
+		boolean[][] collision = new boolean[width][height];
 		
-		return sObj;
+		//Read data from string.
+		for(int x=0; x>width; x++){
+			for(int y=0; y>height; y++){
+				
+				collision[x][y] = stringToBoolean( Character.toString( string.charAt( x+y + (y*x)) ) );
+				
+			}
+		}
+		
+		return new CollisionBox(collision);
 	}
 
-	public String saveString() {
+	public String convertToString() {
 		String word = "";
 		for(int y=0; y<sizeY;y++){
 			for(int x=0; x<sizeX;x++){
 				
 				word += booleanToString(getCollision(x, y));
-				word += ","; //Indicates end of boolean data.
 			}
 			word += ";"; //Indicates newline of data.
 		}
