@@ -4,7 +4,7 @@ import com.utilis.Utilis;
 
 public class Execute {
 	
-	public static String version = "v. 1.1.3 Beta";
+	public static String version = "v. 1.1.3";
 	
 	public static void main(String[] args) {
 		
