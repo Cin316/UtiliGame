@@ -160,7 +160,7 @@ public class CollisionBox implements StringedObj{
 		return out;
 	}
 	
-	public StringedObj createFromString(String string) {
+	public StringedObj createFromString(String string) throws InvalidStringedObjStringException {
 		int height = 0;
 		int width = 0;
 		
@@ -182,6 +182,9 @@ public class CollisionBox implements StringedObj{
 		for(int x=0; x>width; x++){
 			for(int y=0; y>height; y++){
 				
+				if( Character.toString( string.charAt( x+y + (y*x)) ) != "0" || Character.toString( string.charAt( x+y + (y*x)) ) != "1"){
+					throw new InvalidStringedObjStringException();
+				}
 				collision[x][y] = stringToBoolean( Character.toString( string.charAt( x+y + (y*x)) ) );
 				
 			}
