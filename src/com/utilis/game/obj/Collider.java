@@ -1,8 +1,10 @@
 package com.utilis.game.obj;
 
 import java.awt.Rectangle;
+import java.util.ArrayList;
 
 import com.utilis.StringedObj;
+import com.utilis.StringedObj.InvalidStringedObjStringException;
 
 /**
  * An abstract class for all classes which can be used in collision detection.
