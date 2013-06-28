@@ -2,7 +2,11 @@ package com.utilis.game.obj;
 
 import java.awt.Image;
 import java.awt.Rectangle;
+import java.util.ArrayList;
+
 import com.utilis.StringedObj;
+import com.utilis.StringedObj.InvalidStringedObjStringException;
+import com.utilis.game.obj.Collider.CollisionBoxSizeException;
 
 /**
  * A class representing an object that is locked to a grid and cannot move.
@@ -16,16 +20,97 @@ public class Tile extends Collider{
 	 */
 	protected Image image;
 	
-	public String saveString(){
-		String string = "t(cb=";
-		string += this.collide.toString() + ",";
-		string += "x=" + this.x + ",";
-		string += "y=" + this.y + ",";
+	public String convertToString(){
 		
-		return string;
+		String output = "";
+		
+		output += ("x:" + x + "\n");
+		output += ("y:" + y + "\n");
+		output += ("width:" + width + "\n");
+		output += ("height:" + height + "\n");
+		output += ("collision:" + collide.convertToString() + "\n");
+		
+		return output;
+		
 	}
-	public static Tile loadString(){
+	/**
+	 * Takes a String and uses it to create a new Collider.
+	 * @param s String to create new Collider from.
+	 * @return StringedObj created from the original String.  Instance of Collider.
+	 */
+	public StringedObj createFromString(String s) throws InvalidStringedObjStringException{
 		
+		int x = 0;
+		int y = 0;
+		int width = 0;
+		int height = 0;
+		Tile output;
+		ArrayList<String> lines = new ArrayList<String>(5); //5 lines are used in convertToString
+		
+		//Converts String into lines in an ArrayList
+		String l = "";
+		for(int i=0; i>s.length(); i++){
+			if( s.charAt(i) == '\n' ){
+				lines.add(l);
+				l = "";
+			}else{
+				l += Character.toString( s.charAt(i) );
+			}
+		}
+		
+		//Read from lines.
+		boolean[] variablePresent = new boolean[5];
+		String currentLine;
+		String value;
+		for(int i=0; i<lines.size(); i++){
+			
+			currentLine = lines.get(i);
+			int colonNum;
+			colonNum = currentLine.indexOf(":");
+			value = currentLine.substring(colonNum+1);
+			
+			if( currentLine.startsWith("x:") ){
+				Integer val = new Integer(value);
+				x = val.intValue();
+				variablePresent[0] = true;
+			}else if( currentLine.startsWith("y:") ){
+				Integer val = new Integer(value);
+				y = val.intValue();
+				variablePresent[1] = true;
+			}else if( currentLine.startsWith("width:") ){
+				Integer val = new Integer(value);
+				width = val.intValue();
+				variablePresent[2] = true;
+			}else if( currentLine.startsWith("height:") ){
+				Integer val = new Integer(value);
+				height = val.intValue();
+				variablePresent[3] = true;
+			}else if( currentLine.startsWith("collision:") ){
+				CollisionBox cb = new CollisionBox(1, 1); //Used to run createFromString.
+				CollisionBox collide = (CollisionBox) cb.createFromString(value);
+				variablePresent[4] = true;
+			}
+			
+		}
+		
+		//Check if something was missing.
+		for(int i=0; i<variablePresent.length; i++){
+			
+			if(!variablePresent[i]){
+				throw new InvalidStringedObjStringException();
+			}
+			
+		}
+		
+		//Create Collider.
+		output = new Tile(x, y, width, height);
+		try {
+			output.setCollisionBox(collide);
+		} catch (CollisionBoxSizeException e) {
+			throw new InvalidStringedObjStringException();
+		}
+		
+		return (StringedObj) output;
 	}
 	
 	/**
