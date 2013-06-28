@@ -216,10 +216,8 @@ public class Canvas extends JPanel{
 	protected void paintComponent(Graphics g){
 		
 		// initialize buffer//
-		if (dbImage == null){
-			dbImage = createImage(this.getSize().width, this.getSize().height); 
-			dbg = dbImage.getGraphics(); 
-		} 
+		dbImage = createImage(this.getSize().width, this.getSize().height); 
+		dbg = dbImage.getGraphics(); 
 		
 		// clear screen in background 
 		dbg.setColor(getBackground()); 
